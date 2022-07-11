@@ -1,3 +1,5 @@
+import PageLayout from '../../components/layout/PageLayout';
+
 export default function Restaurant() {
-  return <div>Restaurant</div>;
+  return <PageLayout title="Restaurant">123</PageLayout>;
 }

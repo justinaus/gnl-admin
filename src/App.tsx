@@ -1,13 +1,21 @@
+import { Container } from '@mui/material';
 import React from 'react';
 
 import AppRoutes from './Routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">11</header>
+    <Container
+      sx={{
+        minHeight: '100vh',
+        paddingLeft: '0 !important',
+        paddingRight: '0 !important',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <AppRoutes />
-    </div>
+    </Container>
   );
 }
 
