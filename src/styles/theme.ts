@@ -8,4 +8,11 @@ export const theme = createTheme({
       textTransform: 'none', // 이거 없음 영어 다 대문자로 됨.
     },
   },
+  components: {
+    MuiTableCell: {
+      defaultProps: {
+        align: 'center',
+      },
+    },
+  },
 });
