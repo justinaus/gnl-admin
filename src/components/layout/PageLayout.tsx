@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 
 import ErrorBoundary from '../shared/ErrorBoundary';
@@ -20,10 +20,12 @@ export default function PageLayout({
       }}
     >
       <ErrorBoundary>
-        <Stack spacing={4}>
-          <Typography variant="h5">{title}</Typography>
+        <Box>
+          <Typography variant="h5" marginBottom={4}>
+            {title}
+          </Typography>
           {children}
-        </Stack>
+        </Box>
       </ErrorBoundary>
     </Box>
   );
