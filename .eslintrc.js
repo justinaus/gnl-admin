@@ -16,7 +16,6 @@ module.exports = {
     'simple-import-sort/imports': 'warn',
     'simple-import-sort/exports': 'warn',
     'no-unused-vars': 'warn',
-    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
   },
 };

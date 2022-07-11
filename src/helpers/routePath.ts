@@ -1,3 +1,3 @@
 export enum RoutePath {
-  Restaurants = "/restaurants",
+  Restaurants = '/restaurants',
 }
