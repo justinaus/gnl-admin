@@ -5,6 +5,7 @@ import PageLayout from '../../components/layout/PageLayout';
 import { IRestaurantForm } from '../../components/restaurants/write/helpers';
 import RestaurantForm from '../../components/restaurants/write/RestaurantForm';
 import useRestaurant from '../../components/restaurants/write/useRestaurant';
+import useRestaurantUpdate from '../../components/restaurants/write/useRestaurantUpdate';
 import { RoutePath } from '../../helpers/routePath';
 import { Restaurant } from '../../lib/types';
 
@@ -22,6 +23,23 @@ export default function RestaurantUpdate() {
 
     navigate(RoutePath.Restaurants);
   }, [error, navigate]);
+
+  const {
+    mutate,
+    result: { data: mutateData, error: errorData },
+  } = useRestaurantUpdate(id!);
+
+  useEffect(() => {
+    if (!errorData) return;
+
+    alert(errorData);
+  }, [errorData]);
+
+  useEffect(() => {
+    if (!mutateData) return;
+
+    alert(mutateData.success ? 'Success' : 'Failed');
+  }, [mutateData]);
 
   const defaultValues = useMemo((): IRestaurantForm | null => {
     if (!data) return null;
@@ -50,8 +68,7 @@ export default function RestaurantUpdate() {
 
   const handleSubmit = useCallback(
     (values: IRestaurantForm) => {
-      let params: Restaurant = {
-        id: id!,
+      let params: Omit<Restaurant, 'id'> = {
         name: values.name,
         latLng: {
           lat: Number.parseInt(values.latLng.lat),
@@ -87,9 +104,9 @@ export default function RestaurantUpdate() {
         params.hashtags = values.hashtags.split(' ').map((tag) => tag.trim());
       }
 
-      // mutate(params);
+      mutate(params);
     },
-    [id],
+    [mutate],
   );
 
   return (

@@ -175,7 +175,7 @@ export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
         </Stack>
       </Box>
       <Button variant="contained" onClick={handleAdd} disabled={!isValid}>
-        Add
+        Submit
       </Button>
     </Stack>
   );
