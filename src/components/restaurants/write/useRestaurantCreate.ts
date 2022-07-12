@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import { db } from '../../../lib/firebase';
 import { Restaurant } from '../../../lib/types';
 
-export default function useRestaurantMutation() {
+export default function useRestaurantCreate() {
   const [data, setData] = useState<{
     success: boolean;
   } | null>(null);

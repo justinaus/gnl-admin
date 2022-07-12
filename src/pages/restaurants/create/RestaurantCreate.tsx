@@ -3,14 +3,14 @@ import { useCallback, useEffect } from 'react';
 import PageLayout from '../../../components/layout/PageLayout';
 import { IRestaurantForm } from '../../../components/restaurants/write/helpers';
 import RestaurantForm from '../../../components/restaurants/write/RestaurantForm';
-import useRestaurantMutation from '../../../components/restaurants/write/useRestaurantMutation';
+import useRestaurantCreate from '../../../components/restaurants/write/useRestaurantCreate';
 import { Restaurant } from '../../../lib/types';
 
 export default function RestaurantCreate() {
   const {
     mutate,
     result: { data, error },
-  } = useRestaurantMutation();
+  } = useRestaurantCreate();
 
   useEffect(() => {
     if (!error) return;
