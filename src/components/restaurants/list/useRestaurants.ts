@@ -4,10 +4,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { db } from '../../../lib/firebase';
 import { Restaurant } from '../../../lib/types';
 
-export type RestaurantsResponse = {
-  data: Restaurant[];
-};
-
 export default function useRestaurants() {
   const [data, setData] = useState<Restaurant[] | null>(null);
   const [error, setError] = useState<string | null>(null);
