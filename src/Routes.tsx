@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { RoutePath } from './helpers/routePath';
 import RestaurantCreate from './pages/restaurants/create/RestaurantCreate';
-import Restaurant from './pages/restaurants/Restaurant';
+import RestaurantUpdate from './pages/restaurants/Restaurant';
 import Restaurants from './pages/restaurants/Restaurants';
 
 export default function AppRoutes() {
@@ -15,7 +15,7 @@ export default function AppRoutes() {
         path={RoutePath.RestaurantsCreate}
         element={<RestaurantCreate />}
       />
-      <Route path={`${RoutePath.Restaurants}/:id`} element={<Restaurant />} />
+      <Route path={`${RoutePath.Restaurants}/:id`} element={<RestaurantUpdate />} />
       <Route path="*" element={<Navigate to={RoutePath.Restaurants} />} />
     </Routes>
   );
