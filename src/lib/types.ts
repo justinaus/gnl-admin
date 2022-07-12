@@ -5,14 +5,14 @@ export type Restaurant = {
     lat: number;
     lng: number;
   };
-  point?: number;
-  content?: string;
-  link?: {
+  link: {
     mangpl?: string;
     naver?: string;
     micherin?: string;
     blueribbon?: string;
   };
+  point?: number;
+  content?: string;
   emoji?: string;
   hashtags?: string[];
 };

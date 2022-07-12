@@ -6,9 +6,10 @@ import { DEFAULT_RESTAURANT_FORM_VALUES, IRestaurantForm } from './helpers';
 
 type Props = {
   defaultValues?: IRestaurantForm;
+  onSubmit: (values: IRestaurantForm) => void;
 };
 
-export default function RestaurantForm({ defaultValues }: Props) {
+export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
   const reactHookForm = useForm<IRestaurantForm>({
     defaultValues: defaultValues
       ? { ...defaultValues }
@@ -36,8 +37,8 @@ export default function RestaurantForm({ defaultValues }: Props) {
   }, [lat, lng, name]);
 
   const handleAdd = useCallback(() => {
-    console.log(getValues());
-  }, [getValues]);
+    onSubmit(getValues());
+  }, [getValues, onSubmit]);
 
   return (
     <Stack spacing={4}>
