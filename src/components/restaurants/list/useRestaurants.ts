@@ -1,8 +1,8 @@
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { useCallback, useEffect, useState } from 'react';
 
-import { db } from './firebase';
-import { Restaurant } from './types';
+import { db } from '../../../lib/firebase';
+import { Restaurant } from '../../../lib/types';
 
 export type RestaurantsResponse = {
   data: Restaurant[];

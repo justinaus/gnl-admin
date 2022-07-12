@@ -9,8 +9,8 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import useRestaurants from '../../../lib/useRestaurants';
 import Row from './Row';
+import useRestaurants from './useRestaurants';
 
 export default function RestaurantsTable() {
   const { data, error } = useRestaurants();
