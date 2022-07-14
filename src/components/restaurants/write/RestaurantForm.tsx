@@ -65,8 +65,8 @@ export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
                 label="lat *"
                 variant="outlined"
                 type="number"
+                placeholder="37"
                 fullWidth
-                InputProps={{ inputProps: { min: 0, max: 30 } }}
                 {...field}
               />
             )}
@@ -82,8 +82,8 @@ export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
                 label="lng *"
                 variant="outlined"
                 type="number"
+                placeholder="127"
                 fullWidth
-                InputProps={{ inputProps: { min: 0, max: 30 } }}
                 {...field}
               />
             )}
@@ -97,7 +97,6 @@ export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
               label="point"
               variant="outlined"
               type="number"
-              InputProps={{ inputProps: { min: 0, max: 5 } }}
               {...field}
             />
           )}

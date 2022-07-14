@@ -29,8 +29,8 @@ export default function RestaurantCreate() {
       let params: Omit<Restaurant, 'id'> = {
         name: values.name,
         latLng: {
-          lat: Number.parseInt(values.latLng.lat),
-          lng: Number.parseInt(values.latLng.lng),
+          lat: Number.parseFloat(values.latLng.lat),
+          lng: Number.parseFloat(values.latLng.lng),
         },
         link: {},
       };
@@ -42,7 +42,7 @@ export default function RestaurantCreate() {
         params.emoji = values.emoji;
       }
       if (values.point) {
-        params.point = Number.parseInt(values.point);
+        params.point = Number.parseFloat(values.point);
       }
 
       if (values.link.mangpl) {

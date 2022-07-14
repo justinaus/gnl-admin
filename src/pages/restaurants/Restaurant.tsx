@@ -39,7 +39,11 @@ export default function RestaurantUpdate() {
     if (!mutateData) return;
 
     alert(mutateData.success ? 'Success' : 'Failed');
-  }, [mutateData]);
+
+    if (mutateData.success) {
+      navigate(RoutePath.Restaurants);
+    }
+  }, [mutateData, navigate]);
 
   const defaultValues = useMemo((): IRestaurantForm | null => {
     if (!data) return null;
@@ -71,8 +75,8 @@ export default function RestaurantUpdate() {
       let params: Omit<Restaurant, 'id'> = {
         name: values.name,
         latLng: {
-          lat: Number.parseInt(values.latLng.lat),
-          lng: Number.parseInt(values.latLng.lng),
+          lat: Number.parseFloat(values.latLng.lat),
+          lng: Number.parseFloat(values.latLng.lng),
         },
         link: {},
       };
@@ -84,7 +88,7 @@ export default function RestaurantUpdate() {
         params.emoji = values.emoji;
       }
       if (values.point) {
-        params.point = Number.parseInt(values.point);
+        params.point = Number.parseFloat(values.point);
       }
 
       if (values.link.mangpl) {
