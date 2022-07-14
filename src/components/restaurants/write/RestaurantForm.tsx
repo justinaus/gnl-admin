@@ -22,19 +22,15 @@ export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
     control,
     name: 'name',
   });
-  const lat = useWatch({
+  const naverId = useWatch({
     control,
-    name: 'latLng.lat',
-  });
-  const lng = useWatch({
-    control,
-    name: 'latLng.lng',
+    name: 'naverId',
   });
 
   const isValid = useMemo(() => {
-    if (!name || !lat || !lng) return false;
+    if (!name || !naverId) return false;
     return true;
-  }, [lat, lng, name]);
+  }, [name, naverId]);
 
   const handleAdd = useCallback(() => {
     onSubmit(getValues());
@@ -53,42 +49,16 @@ export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
             <TextField label="name *" variant="outlined" {...field} />
           )}
         />
-        <Stack direction={'row'} spacing={1}>
-          <Controller
-            name="latLng.lat"
-            control={control}
-            rules={{
-              required: true,
-            }}
-            render={({ field }) => (
-              <TextField
-                label="lat *"
-                variant="outlined"
-                type="number"
-                placeholder="37"
-                fullWidth
-                {...field}
-              />
-            )}
-          />
-          <Controller
-            name="latLng.lng"
-            control={control}
-            rules={{
-              required: true,
-            }}
-            render={({ field }) => (
-              <TextField
-                label="lng *"
-                variant="outlined"
-                type="number"
-                placeholder="127"
-                fullWidth
-                {...field}
-              />
-            )}
-          />
-        </Stack>
+        <Controller
+          name="naverId"
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field }) => (
+            <TextField label="naverId *" variant="outlined" {...field} />
+          )}
+        />
         <Controller
           name="point"
           control={control}
@@ -148,13 +118,6 @@ export default function RestaurantForm({ defaultValues, onSubmit }: Props) {
             control={control}
             render={({ field }) => (
               <TextField label="mangpl" variant="outlined" {...field} />
-            )}
-          />
-          <Controller
-            name="link.naver"
-            control={control}
-            render={({ field }) => (
-              <TextField label="naver" variant="outlined" {...field} />
             )}
           />
           <Controller

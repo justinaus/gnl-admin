@@ -50,10 +50,7 @@ export default function RestaurantUpdate() {
 
     return {
       name: data.name,
-      latLng: {
-        lat: String(data.latLng.lat),
-        lng: String(data.latLng.lng),
-      },
+      naverId: data.naverId,
       content: data.content || '',
       emoji: data.emoji || '',
       point:
@@ -63,7 +60,6 @@ export default function RestaurantUpdate() {
       hashtags: data.hashtags ? data.hashtags.join(' ') : '',
       link: {
         mangpl: data.link.mangpl || '',
-        naver: data.link.naver || '',
         micherin: data.link.micherin || '',
         blueribbon: data.link.blueribbon || '',
       },
@@ -74,10 +70,7 @@ export default function RestaurantUpdate() {
     (values: IRestaurantForm) => {
       let params: Omit<Restaurant, 'id'> = {
         name: values.name,
-        latLng: {
-          lat: Number.parseFloat(values.latLng.lat),
-          lng: Number.parseFloat(values.latLng.lng),
-        },
+        naverId: values.naverId,
         link: {},
       };
 
@@ -93,9 +86,6 @@ export default function RestaurantUpdate() {
 
       if (values.link.mangpl) {
         params.link.mangpl = values.link.mangpl;
-      }
-      if (values.link.naver) {
-        params.link.naver = values.link.naver;
       }
       if (values.link.micherin) {
         params.link.micherin = values.link.micherin;

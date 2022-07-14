@@ -1,13 +1,9 @@
 export type Restaurant = {
   id: string;
   name: string;
-  latLng: {
-    lat: number;
-    lng: number;
-  };
+  naverId: string;
   link: {
     mangpl?: string;
-    naver?: string;
     micherin?: string;
     blueribbon?: string;
   };
