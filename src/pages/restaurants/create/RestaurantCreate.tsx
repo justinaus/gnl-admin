@@ -28,6 +28,7 @@ export default function RestaurantCreate() {
     (values: IRestaurantForm) => {
       let params: Omit<Restaurant, 'id'> = {
         name: values.name,
+        naverId: values.naverId,
         latLng: {
           lat: Number.parseFloat(values.latLng.lat),
           lng: Number.parseFloat(values.latLng.lng),
@@ -47,9 +48,6 @@ export default function RestaurantCreate() {
 
       if (values.link.mangpl) {
         params.link.mangpl = values.link.mangpl;
-      }
-      if (values.link.naver) {
-        params.link.naver = values.link.naver;
       }
       if (values.link.micherin) {
         params.link.micherin = values.link.micherin;
