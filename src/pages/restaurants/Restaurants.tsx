@@ -9,7 +9,13 @@ export default function Restaurants() {
   return (
     <PageLayout title="Restaurants">
       <Link to={`${RoutePath.RestaurantsCreate}`}>
-        <Button fullWidth variant="contained">
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{
+            marginBottom: 4,
+          }}
+        >
           Add
         </Button>
       </Link>
