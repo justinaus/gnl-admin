@@ -1,10 +1,14 @@
 export interface IRestaurantForm {
   name: string;
-  naverId: string;
+  latLng: {
+    lat: string;
+    lng: string;
+  };
   point: string;
   content: string;
   link: {
     mangpl: string;
+    naver: string;
     micherin: string;
     blueribbon: string;
   };
@@ -14,12 +18,16 @@ export interface IRestaurantForm {
 
 export const DEFAULT_RESTAURANT_FORM_VALUES: IRestaurantForm = {
   name: '',
-  naverId: '',
   point: '',
   content: '',
   emoji: '',
+  latLng: {
+    lat: '',
+    lng: '',
+  },
   link: {
     mangpl: '',
+    naver: '',
     micherin: '',
     blueribbon: '',
   },
